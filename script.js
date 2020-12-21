@@ -15,9 +15,7 @@ var promptMessageTwo = " characters or Cancel to exclude them.";
 
   // has the user set password length with validation
   function setPasswordLength() {
-    console.log(pwLength);
     pwLength = "";  
-    console.log(pwLength);
     var pwLength = prompt("Choose a password length between 8 and 128 characters.");
 
       // Checks to see if the password length is less than 8, greater than 128, or is not a number at all. If true, it alerts the user to enter a number and restarts the function.
@@ -26,10 +24,8 @@ var promptMessageTwo = " characters or Cancel to exclude them.";
           setPasswordLength()
       }
       
-      console.log(pwLength);
     // sets the function equal to the number provided for reference in generatePassword function
-    return pwLength
-    console.log(pwLength);
+      return pwLength
   }   
 
   //has the user select whether to include lowercase characters in the password
