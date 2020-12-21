@@ -56,10 +56,11 @@ var promptMessageTwo = " characters or Cancel to exclude them.";
     return confirmSpecial
   }
 
-      // if (confirmlowerCase && confirmUpperCase && confirmNumeric && confirmSpecial) {
-      //   alert("wow");
-      // }
+  function clear() {
+    document.querySelector("#password").value = '';
+  }
 
+// iterates through functions defined above, then validates whether all of the confirms are false
 function generatePassword () {
     var randomPassword = "";
     var pwLengthEntry = setPasswordLength();
@@ -68,11 +69,13 @@ function generatePassword () {
     var numericOption = checkNumeric();
     var specialOption = checkSpecial();
 
+    // if all of the confirms are false, presents the user with an error and breaks out of the function
     if (lowerCaseOption === false && upperCaseOption === false && numericOption === false && specialOption === false) {
       alert("Please select at least one character type.");
       return
     }
 
+    // defines a new variable to concatenate all relevant character sets
     var finalSetofOptions = "";
 
     if (lowerCaseOption) {
@@ -91,6 +94,7 @@ function generatePassword () {
       finalSetofOptions = finalSetofOptions.concat(specialCharacters);
     }
 
+    // iterates through the final password character set to select characters based on how many characters were defined by the pwLength prompt
     for (var i = 0; i < pwLengthEntry; i++) {
       randomPassword += finalSetofOptions.charAt(Math.floor(Math.random() * finalSetofOptions.length));
     }
